@@ -1,0 +1,17 @@
+/* Column Reverse on Mobile */
+.wp-block-columns.t29-col-reverse-mobile {
+  @media (max-width: calc($breakpoint-wp-md - 1px)) {
+    flex-direction: column-reverse;
+  }
+}
+
+/* Image Center on Mobile */
+@media (max-width: calc($breakpoint-wp-md - 1px)) {
+  .wp-block-image.t29-img-center-mobile {
+    float: none !important;
+    clear: both;
+    text-align: center;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}

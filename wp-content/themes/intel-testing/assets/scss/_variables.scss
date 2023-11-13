@@ -1,0 +1,12 @@
+// Breakpoints. Hybrid WP Core + 10up Breakpoints
+$breakpoint-xs: 400px;
+$breakpoint-sm: 480px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-xxl: 1440px;
+
+// WP Core Breakpoints. Used for default mobile column breakpoint
+// https://github.com/search?q=repo%3AWordPress%2Fgutenberg+%40include+break-+path%3A%2F%5Epackages%5C%2Fblock-library%5C%2Fsrc%5C%2F%2F&type=code
+$breakpoint-wp-sm: 600px;
+$breakpoint-wp-md: 782px;

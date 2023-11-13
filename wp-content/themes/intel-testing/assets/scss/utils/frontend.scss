@@ -1,0 +1,6 @@
+@import "frontend-responsiveness";
+
+.pull-top {
+  margin-top: calc(-1 * var(--wp--preset--spacing--50));
+  padding-bottom: var(--wp--preset--spacing--50);
+}

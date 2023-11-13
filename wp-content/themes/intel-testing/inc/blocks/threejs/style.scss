@@ -1,0 +1,33 @@
+.page-id-101{
+	min-height: 100vh;
+}
+.threejs{
+	position: relative;
+	margin: 0;
+	&-container {
+		z-index: -1;
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: linear-gradient(to bottom, rgb(3, 171, 205), rgb(23, 2, 116));
+		canvas{
+			height: 100%;
+		}
+	}
+	.acf-innerblocks-container{
+		position: relative;
+		z-index: 2;
+		& > div{
+			position: relative;
+			z-index: 3;
+		}
+	}
+}
+.wp-admin .threejs{
+	&-container{
+		position: absolute;
+		z-index: 1;
+	}
+}

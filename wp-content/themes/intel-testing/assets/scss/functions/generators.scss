@@ -1,0 +1,8 @@
+
+// Pass in the variable name and it this function will format correctly for you
+// Example:
+// $color: wp-variable(primary); will return var(--wp--preset--color--primary);
+
+@function wp-var($variable) {
+  @return var(-wp--preset--color--#{$variable});
+}

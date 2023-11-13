@@ -1,0 +1,134 @@
+@import 'animate.css';
+
+body > .wp-site-blocks{
+	padding: 0;
+}
+
+.snap-slides{
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+	overflow-y: scroll;
+	overflow-x: hidden;
+  scroll-snap-type: both mandatory;
+	scroll-snap-stop: always;
+	background: linear-gradient(to bottom, rgb(242, 191, 103), #4C38F8 32%, #01001c);
+	background-attachment: local;
+	display: grid;
+	grid-auto-rows: 100%;
+	grid-auto-columns: 100%;
+	&.--horizontal{
+		.snap-slides__slide{
+			grid-column-start: 1;
+		}
+	}
+	&__slide{
+		position: relative;
+		z-index: 7;
+		scroll-snap-align: start;
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		padding: 1rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		h2, p{
+			margin: 0;
+			text-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+		}
+		&:nth-child(n + 3){
+			h2, p{
+				color: white !important;
+			}
+		}
+		&:nth-child(2), &:nth-child(4){
+			z-index: 5;
+		}
+		.footer{
+			position: absolute;
+			bottom: 0;
+			padding: 1rem;
+		}
+	}
+}
+
+.moon{
+	opacity: 0;
+	position: fixed;
+	z-index: 6;
+	width: 10rem;
+	height: 10rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	img{
+		width: 100%;
+		height: 100%;
+	}
+	pointer-events: none;
+	transform-origin: center;
+}
+
+.earth{
+	opacity: 0;
+	position: fixed;
+	z-index: 6;
+	width: 10rem;
+	height: 10rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	img{
+		width: 100%;
+		height: 100%;
+	}
+	pointer-events: none;
+}
+
+.stars{
+	position: fixed;
+	z-index: 1;
+	padding: 0;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	pointer-events: none;
+	.star{
+		opacity: 0;
+		position: absolute;
+		height: 3px;
+		width: 3px;
+		border-radius: 5px;
+		margin: 0;
+	}
+}
+
+.scroll-test{
+	overflow-y: hidden;
+	overflow-x: hidden;
+	height: 100vh;
+	width: 100vw;
+	background: orange;
+	//pointer-events: none;
+	display: grid;
+	grid-auto-rows: 100%;
+	grid-auto-columns: 100%;
+	//scroll-snap-type: both mandatory;
+	//scroll-snap-stop: always;
+	position: relative;
+	&__item{
+		//scroll-snap-align: center;
+		margin: 0;
+		height: 100%;
+		width: 100%;
+		grid-column-start: 1;
+		&:nth-child(n + 4){
+			grid-column-start: 2;
+		}
+	}
+}

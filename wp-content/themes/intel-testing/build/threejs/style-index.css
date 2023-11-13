@@ -1,0 +1,38 @@
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/resolve-url-loader/index.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[4]!./inc/blocks/threejs/style.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************/
+.page-id-101 {
+  min-height: 100vh;
+}
+
+.threejs {
+  position: relative;
+  margin: 0;
+}
+.threejs-container {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to bottom, rgb(3, 171, 205), rgb(23, 2, 116));
+}
+.threejs-container canvas {
+  height: 100%;
+}
+.threejs .acf-innerblocks-container {
+  position: relative;
+  z-index: 2;
+}
+.threejs .acf-innerblocks-container > div {
+  position: relative;
+  z-index: 3;
+}
+
+.wp-admin .threejs-container {
+  position: absolute;
+  z-index: 1;
+}
+
+/*# sourceMappingURL=style-index.css.map*/

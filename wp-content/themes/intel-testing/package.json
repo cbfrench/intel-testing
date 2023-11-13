@@ -1,0 +1,32 @@
+{
+  "name": "three29-fse-theme",
+  "version": "1.0.0",
+  "description": "=== Three29 FSE === Contributors: Three29 Requires at least: 6.1 Tested up to: 6.2 Requires PHP: 7.4 Stable tag: 1.0 License: GPLv2 or later License URI: http://www.gnu.org/licenses/gpl-2.0.html",
+  "main": "index.js",
+  "scripts": {
+    "start": "t29-wp start",
+    "build": "t29-wp build",
+    "clean-dist": "rm -rf ./dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "t29-wp": "file:t29-wp"
+  },
+  "dependencies": {
+    "@wordpress/icons": "^9.26.0",
+    "animate.css": "^4.1.1",
+    "modern-normalize": "^2.0.0",
+    "three": "^0.158.0"
+  },
+  "t29-wp": {
+    "entry": {
+      "frontend": "./assets/js/frontend.js",
+      "shared": "./assets/js/shared.js",
+      "core-block-overrides": "./assets/js/core-block-overrides.js",
+      "editor": "./assets/js/editor.js",
+      "admin": "./assets/js/admin.js"
+    }
+  }
+}

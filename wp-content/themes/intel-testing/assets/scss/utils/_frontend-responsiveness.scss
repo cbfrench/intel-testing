@@ -1,0 +1,35 @@
+// Column Reverse on Mobile
+.wp-block-columns.t29-col-reverse-mobile {
+  @media (max-width: calc($breakpoint-wp-md - 1px)) {
+    flex-direction: column-reverse;
+  }
+}
+
+// Image Center on Mobile
+@media (max-width: calc($breakpoint-wp-md - 1px)) {
+  .wp-block-image.t29-img-center-mobile {
+    float: none !important;
+    clear: both;
+    text-align: center;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+// Center on breakpoint
+@media (min-width: calc($breakpoint-lg + 1px)) {
+  body .t29-center-desktop {
+    text-align: center !important;
+  }
+}
+/* WP Core Mobile Column Breakpoint is $breakpoint-wp-md */
+@media (min-width: $breakpoint-wp-md) and (max-width: $breakpoint-lg) {
+  body .t29-center-tablet {
+    text-align: center !important;
+  }
+}
+@media (max-width: calc($breakpoint-wp-md - 1px)) {
+  body .t29-center-mobile {
+    text-align: center !important;
+  }
+}

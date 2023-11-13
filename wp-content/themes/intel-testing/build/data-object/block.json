@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "title": "Data Object",
+  "description": "Data Object Block",
+  "textdomain": "three29-fse",
+  "name": "three29/data-object",
+  "icon": "camera",
+  "category": "three29",
+  "attributes": {},
+  "example": {
+    "attributes": {}
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": true,
+    "jsx": true,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "style": "file:./style-index.css",
+  "editorScript": "file:./index.js"
+}

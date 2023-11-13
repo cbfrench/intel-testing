@@ -1,0 +1,45 @@
+// Global
+@import "variables";
+@import "mixins";
+
+@import "utils/frontend";
+
+
+/* Styles intended only for the front.*/
+html {
+  scroll-behavior: smooth;
+}
+html {
+  height: calc(100% - var(--wp-admin--admin-bar--height, 0px));
+}
+body {
+  min-height: calc(100% - var(--wp-admin--admin-bar--height, 0px));
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+body > .wp-site-blocks {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100% + var(--wp-admin--admin-bar--height, 0px));
+
+  & > main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    //overflow: hidden;
+  }
+}
+
+.scroll__start-hidden{
+	opacity: 0;
+}

@@ -1,0 +1,25 @@
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/resolve-url-loader/index.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[4]!./inc/blocks/snap-slide/style.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************/
+.slides {
+  overflow-y: hidden;
+  overflow-x: hidden;
+  height: 100vh;
+  width: 100vw;
+  background: orange;
+  display: grid;
+  grid-auto-rows: 100%;
+  grid-auto-columns: 100%;
+  position: relative;
+}
+.slides__slide {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  grid-column-start: 1;
+}
+.slides__slide:nth-child(n+4) {
+  grid-column-start: 2;
+}
+
+/*# sourceMappingURL=style-index.css.map*/

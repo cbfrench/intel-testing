@@ -1,0 +1,24 @@
+.slides{
+	overflow-y: hidden;
+	overflow-x: hidden;
+	height: 100vh;
+	width: 100vw;
+	background: orange;
+	//pointer-events: none;
+	display: grid;
+	grid-auto-rows: 100%;
+	grid-auto-columns: 100%;
+	//scroll-snap-type: both mandatory;
+	//scroll-snap-stop: always;
+	position: relative;
+	&__slide{
+		//scroll-snap-align: center;
+		margin: 0;
+		height: 100%;
+		width: 100%;
+		grid-column-start: 1;
+		&:nth-child(n + 4){
+			grid-column-start: 2;
+		}
+	}
+}

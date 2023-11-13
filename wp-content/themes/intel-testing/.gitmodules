@@ -1,0 +1,3 @@
+[submodule "t29-wp"]
+	path = t29-wp
+	url = git@github.com:three29/t29-wp.git

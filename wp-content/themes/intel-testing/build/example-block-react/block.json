@@ -1,0 +1,32 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "title": "Example Block",
+  "description": "An Example Block",
+  "textdomain": "three29-fse",
+  "name": "three29/example",
+  "icon": "feedback",
+  "category": "formatting",
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  },
+  "example": {
+    "attributes": {
+      "title": "Example Block"
+    }
+  },
+  "supports": {
+    "html": false,
+    "spacing": {
+      "padding": [
+        "top",
+        "bottom"
+      ]
+    }
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}

@@ -1,0 +1,46 @@
+/*
+Theme Name: Three29 FSE
+Theme URI: https://three29.com/
+Author: Three29
+Author URI: https://three29.com/
+Description: A FSE (Full Site Editing) custom theme harnesses the power of the Gutenberg editor and the latest WordPress features to offer enhanced customization and control over the entire website. Specifically designed to leverage the block-based editing system, enabling users to visually design and customize their entire website, including headers, footers, sidebars, templates, and more.
+Requires at least: 5.8
+Tested up to: 5.9
+Requires PHP: 5.7
+Version: 0.0.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+Text Domain: three29-fse
+Tags:
+*/
+
+
+@media (max-width: 960px) {
+    /*.wp-block-columns {*/
+    /*    flex-wrap: wrap !important;*/
+    /*}*/
+    /*.wp-block-columns:not(.is-not-stacked-on-mobile) > .wp-block-column {*/
+    /*    flex-basis: 100%;*/
+    /*}*/
+
+    .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
+        display: none;
+    }
+
+    .wp-block-navigation__responsive-container-open:not(.always-shown) {
+        display: flex;
+    }
+}
+
+@media (max-width: 960px) {
+    .hide-on-mobile {
+        display: none !important;
+    }
+
+    .custom-nav-bar {
+        flex-grow: 1;
+        justify-content: space-between;
+    }
+}

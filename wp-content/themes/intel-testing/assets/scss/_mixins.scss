@@ -1,0 +1,49 @@
+// Breakpoint Mixins/Media Query Mixins
+@mixin xs {
+  @media (max-width: $breakpoint-xs) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (min-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: $breakpoint-xl) {
+    @content;
+  }
+}
+
+@mixin xxl {
+  @media (min-width: $breakpoint-xxl) {
+    @content;
+  }
+}
+
+// WP Core - Due to this theme being mobile first, we need to add 1px to these queries
+@mixin wp-md {
+  @media (min-width: calc($breakpoint-wp-md + 1px)) {
+    @content;
+  }
+}
+
+@mixin wp-sm {
+  @media (min-width: calc($breakpoint-wp-sm + 1px)) {
+    @content;
+  }
+}
