@@ -5,6 +5,7 @@
 	position: relative;
 	margin: 0;
 	&-container {
+		opacity: 0;
 		z-index: -1;
 		position: fixed;
 		top: 0;
@@ -14,6 +15,7 @@
 		background: linear-gradient(to bottom, rgb(3, 171, 205), rgb(23, 2, 116));
 		canvas{
 			height: 100%;
+			//opacity: 0;
 		}
 	}
 	.acf-innerblocks-container{
@@ -27,6 +29,7 @@
 }
 .wp-admin .threejs{
 	&-container{
+		opacity: 1;
 		position: absolute;
 		z-index: 1;
 	}

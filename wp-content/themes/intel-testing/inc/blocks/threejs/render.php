@@ -115,6 +115,8 @@ $image = $image['url'];
                 var renderer = new THREE.WebGLRenderer({alpha: true});
                 var cubes = [];
 
+                let widthCubes, heightCubes;
+
                 // Set background color to black
                 renderer.setClearColor(0x000000, 0);
 
@@ -147,21 +149,30 @@ $image = $image['url'];
                     let colors = generatePalette('<?php echo $cube_color_palette;?>');
 
                     // Calculate the size of each tile in terms of texture coordinates
-                    const tileWidth = 1 / gridsize;
-                    const tileHeight = 1 / gridsize;
+                    const tileWidth = 1 / widthCubes;
+                    const tileHeight = 1 / heightCubes;
 
                     for (let i = 0; i < numCubes; i++) {
                         let materials = [];
-                        let textureClone = texture.clone();
-                        textureClone.needsUpdate = true;
 
+                        // Clone the texture so that each cube has a unique instance and force reload
+                        let textureClone = texture.clone();
+
+                        // change boundary behavior for non-square images
+                        /*textureClone.wrapS = THREE.RepeatWrapping;
+                        textureClone.wrapT = THREE.RepeatWrapping;
+                        textureClone.repeat.set(2, 2);*/
+                        textureClone.magFilter = THREE.LinearFilter;
+
+                        // force reload of texture
+                        textureClone.needsUpdate = true;
                         
                         for(let j = 0; j < 6; j++){
                             let material;
                             if(j === 4){
                                 // Set the texture coordinates to create a tiling effect
-                                let row = Math.floor(i / gridsize);
-                                let col = i % gridsize;
+                                let row = Math.floor(i / widthCubes);
+                                let col = i % widthCubes;
 
                                 let offsetX = tileWidth * col;
                                 let offsetY = tileHeight * row;
@@ -172,7 +183,6 @@ $image = $image['url'];
 
                                 // Create a material with the image texture
                                 material = new THREE.MeshBasicMaterial({ map: textureClone });
-
                             } 
                             else{
                                 let color = colors[j];
@@ -203,8 +213,8 @@ $image = $image['url'];
                 // Set up camera and renderer
                 const setupRenderer = () => {
                     camera.position.z = gridsize + 5;
-                    camera.position.x = gridsize / 2;
-                    camera.position.y = -gridsize / 2;
+                    camera.position.x = widthCubes / 2;
+                    camera.position.y = -heightCubes / 2;
                     camera.rotation.x = 0;
                     camera.rotation.y = 0;
                     camera.rotation.z = 0;
@@ -212,12 +222,14 @@ $image = $image['url'];
                     container.append(renderer.domElement);
                 }
 
+                let log = true;
+
                 const render = () => {
                     requestAnimationFrame(render);
 
                     for (let i = 0; i < numCubes; i++) {
-                        let row = Math.floor(i / gridsize);
-                        let col = i % gridsize;
+                        let row = Math.floor(i / widthCubes);
+                        let col = i % widthCubes;
 
                         let r = <?php echo $rotation ? 'true' : 'false';?>;
 
@@ -265,12 +277,21 @@ $image = $image['url'];
 
                 var textureLoader = new THREE.TextureLoader();
                 textureLoader.load('<?php echo $image;?>', function (texture) {
+
+                    // allow for images that are not square
+                    widthCubes = Math.min(gridsize, Math.round(gridsize * texture.image.width / texture.image.height));
+                    heightCubes = Math.min(gridsize, Math.round(gridsize * texture.image.height / texture.image.width));
+                    numCubes = widthCubes * heightCubes;
+
                     setupCubes(texture);
                     setupRenderer();
                     render();
 
-                    // Set the position of the container to sticky if the block is set to full height
-                    // needs to be done here in JS otherwise height errors occur
+                    $(`${scope} .threejs-container`).animate({
+                        opacity: 1
+                    }, 500);
+
+                    // adjust block if it is set to block height
                     if($(`${scope}.threejs`).hasClass('--block-height')){
 
                         // without padding set on inner blocks, the canvas adjustment fails, so this adds 1px padding to each inner block
@@ -280,12 +301,16 @@ $image = $image['url'];
                             }
                         });
 
+                        // set the canvas to sticky, needs to be done after the canvas is rendered
                         $(`${scope} .threejs-container`).css('position', 'sticky');
 
+                        // recalculate the initial top position of the block
                         elTopInitial = $(el).offset().top - $(el).position().top;
 
+                        // add negative margin to canvas to offset for initial state of position: sticky
                         $(`${scope} canvas`).css('margin-bottom', -$(window).outerHeight());
 
+                        // recalculate the height of the block
                         elHeight = $(`${scope} .acf-innerblocks-container`).outerHeight() - $(window).outerHeight();
                     }
                 });
