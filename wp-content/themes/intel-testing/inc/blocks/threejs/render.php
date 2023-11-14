@@ -44,6 +44,7 @@ $camera_rotate = get_field('camera_rotate');
 $camera_rotate_sensitivity = get_field('camera_rotate_sensitivity');
 $cube_color_palette = get_field('cube_color_palette');
 $full_height = get_field('full_height');
+$force_squared = get_field('force_squared');
 
 if(!$full_height){
     $class_name .= ' --block-height';
@@ -69,6 +70,8 @@ $image = $image['url'];
             let animationReverse = <?php echo $animation_reverse ? 'true' : 'false';?>;
 
             let sensitivity = <?php echo $camera_rotate_sensitivity ? : 0;?>;
+
+            let squareForced = <?php echo $force_squared ? 'true' : 'false';?>;
 
             const getScrollPercent = () => {
                 let percent = -1;
@@ -279,8 +282,14 @@ $image = $image['url'];
                 textureLoader.load('<?php echo $image;?>', function (texture) {
 
                     // allow for images that are not square
-                    widthCubes = Math.min(gridsize, Math.round(gridsize * texture.image.width / texture.image.height));
-                    heightCubes = Math.min(gridsize, Math.round(gridsize * texture.image.height / texture.image.width));
+                    if(!squareForced){
+                        widthCubes = Math.min(gridsize, Math.round(gridsize * texture.image.width / texture.image.height));
+                        heightCubes = Math.min(gridsize, Math.round(gridsize * texture.image.height / texture.image.width));
+                    }
+                    else{
+                        widthCubes = gridsize;
+                        heightCubes = gridsize;
+                    }
                     numCubes = widthCubes * heightCubes;
 
                     setupCubes(texture);
