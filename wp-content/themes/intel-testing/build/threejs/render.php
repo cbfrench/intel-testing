@@ -120,6 +120,8 @@ $image = $image['url'];
 
                 let widthCubes, heightCubes;
 
+                let timerPercent = 0;
+
                 // Set background color to black
                 renderer.setClearColor(0x000000, 0);
 
@@ -265,13 +267,18 @@ $image = $image['url'];
                             cubes[i].position.z = amp * Math.sin(p * freq + col/wavelength);
                         }
 
-                        if(animationType == 'explode'){
-                            imageFormExplode(percent, r, animationReverse);
-                        }
-                        else if(animationType == 'wave'){
-                            imageWave(percent, animationReverse);
-                        }
-                        
+                        switch(animationType){
+                            case 'explode':
+                                imageFormExplode(percent, r, animationReverse);
+                                break;
+                            case 'wave':
+                                imageWave(percent, animationReverse);
+                                break;
+                            case 'timed_explode':
+                                imageFormExplode(timerPercent, r, animationReverse);
+                                timerPercent = Math.min(timerPercent + 0.000005, 1);
+                                break;
+                        }                 
                     }
 
                     renderer.render(scene, camera);
